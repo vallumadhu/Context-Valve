@@ -1,8 +1,8 @@
 # ContextValve
 
-ContextValve is a lightweight binary classifier that decides whether retrieved context is sufficient to answer a given query — sitting between the retriever and the LLM in a RAG pipeline.
+ContextValve is a lightweight binary classifier that decides whether retrieved context is sufficient to answer a given query, sitting between the retriever and the LLM in a RAG pipeline.
 
-**Problem:** In RAG pipelines, we retrieve k chunks after every query — sometimes they're enough, sometimes they aren't, and sometimes retrieval isn't needed at all. Passing all retrieved chunks to the LLM every time wastes tokens and adds noise. ContextValve sits after retrieval and decides how much context to actually pass on, saving tokens and improving response quality.
+**Problem:** In RAG pipelines, we retrieve k chunks after every query, sometimes they're enough, sometimes they aren't, and sometimes retrieval isn't needed at all. Passing all retrieved chunks to the LLM every time wastes tokens and adds noise. ContextValve sits after retrieval and decides how much context to actually pass on, saving tokens and improving response quality.
 
 
 ## Datasets Used
@@ -42,9 +42,9 @@ Negative Sample Generation
 
 Bias Reduction
 
-- Prevents “empty context ⇒ positive label” shortcut by using context-removed negative samples.  
+- Reduces “empty context ⇒ positive label” shortcut by using context-removed negative samples.  
 - Reduces “long context ⇒ always relevant” bias via context swapping and corruption.  
-- Mitigates cosine-similarity overfitting using FAISS-based hard negatives and chunk replacement.
+- Reduces cosine-similarity overfitting using FAISS-based hard negatives and chunk replacement.
 
 Output
 
@@ -77,4 +77,4 @@ Results:
 - Validation Accuracy: ~0.82
 
 Some Outputs:
-![alt text](images/XGBoost%20Outputs.png)
+![XGBoost Outputs](images/XGBoost_Outputs.png)
